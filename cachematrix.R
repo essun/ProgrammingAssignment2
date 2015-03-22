@@ -34,3 +34,33 @@ cacheSolve <- function(x, ...) {
     x$setinvm(invm)
     invm
 }
+
+
+#Checking results example:
+
+#Create a matrix:
+# > m <- matrix(c(-1, -2, 1, 1), 2,2)
+
+#Create the special "matrix":
+# > x <- makeCacheMatrix(m)
+
+# > x$get()
+# [,1] [,2]
+# [1,]   -1    1
+# [2,]   -2    1
+
+#Solve the inverse of the matrix by using cacheSolve()
+# > inv <- cacheSolve(x)
+# > inv
+# [,1] [,2]
+# [1,]    1   -1
+# [2,]    2   -1
+
+#Solve again the inverse. This time, it reads the cached data from 
+#previous computation:
+# > inv <- cacheSolve(x)
+# getting cached data
+# > inv
+# [,1] [,2]
+# [1,]    1   -1
+# [2,]    2   -1
